@@ -12,12 +12,12 @@ func TestGet(t *testing.T) {
 }
 
 func TestPost(t *testing.T) {
-	data := Data{
+	params := Params{
 		"id":      1,
 		"jsonrpc": "2.0",
 		"params":  List{"f021961"},
 		"method":  "filscan.ActorById"}
-	resp, err := Post("https://api.filscan.io:8700/rpc/v1", data)
+	resp, err := Post("https://api.filscan.io:8700/rpc/v1", params)
 	if err != nil {
 		t.Error(err)
 		return
