@@ -149,6 +149,7 @@ func (r *Req) newClient() {
 		TLSClientConfig: r.tlsConfig,
 	}
 	r.client = &http.Client{
+		Timeout:   r.timeout,
 		Transport: transport,
 	}
 }
