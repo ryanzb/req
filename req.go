@@ -145,8 +145,9 @@ func (r *Req) newClient() {
 		Timeout: r.timeout,
 	}
 	transport := &http.Transport{
-		DialContext:     dialer.DialContext,
-		TLSClientConfig: r.tlsConfig,
+		DialContext:       dialer.DialContext,
+		TLSClientConfig:   r.tlsConfig,
+		DisableKeepAlives: true,
 	}
 	r.client = &http.Client{
 		Timeout:   r.timeout,
